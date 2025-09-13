@@ -1,11 +1,26 @@
-import React from 'react';
-
-// Import the new components and the CSS file
+import React, { useState } from 'react'; 
 import History from './History';
 import Input from './Input';
 import './Terminal.css';
 
 const Terminal = () => {
+  // 1. Create state to hold the command history
+  // We'll give it an initial value to display a welcome message.
+  const [history, setHistory] = useState([
+    { output: 'Welcome to my Interactive Portfolio!' },
+    { output: "Type 'help' to see a list of available commands." },
+    { output: <br /> }
+  ]);
+
+  // 2. This function will be passed to the Input component
+  const handleCommandSubmit = (command) => {
+    // For now, let's just create a simple echo response
+    const newHistory = [
+      ...history, // Copy the old history
+      { command: command, output: `Command received: ${command}` } // Add the new entry
+    ];
+    setHistory(newHistory); // Update the state
+  };
   return (
     // The main container with the 'terminal' class for styling
     <div className="terminal">
@@ -22,8 +37,8 @@ const Terminal = () => {
       {/* The main content area */}
       <div className="terminal-body">
         {/* We are now using our new components here */}
-        <History />
-        <Input />
+        <History history={history} />
+        <Input onCommandSubmit={handleCommandSubmit} />
       </div>
 
     </div>

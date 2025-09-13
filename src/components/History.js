@@ -1,13 +1,23 @@
 import React from 'react';
 
-const History = () => {
-  // Later, this component will receive `history` as a prop and map over it.
-  // For now, we'll just show some placeholder text.
+// 1. Accept the history array as a prop
+const History = ({ history }) => {
   return (
     <div>
-      <p>Welcome to my Interactive Portfolio!</p>
-      <p>Type 'help' to see a list of available commands.</p>
-      <br /> {/* This is just a line break for spacing */}
+      {/* 2. Map over the history array to display each entry */}
+      {history.map((entry, index) => (
+        <div key={index}>
+          {/* If the entry has a command, display it with the prompt */}
+          {entry.command && (
+            <div className="terminal-input-line">
+              <span className="prompt">&gt;</span>
+              <span>{entry.command}</span>
+            </div>
+          )}
+          {/* Display the output */}
+          <div>{entry.output}</div>
+        </div>
+      ))}
     </div>
   );
 };
