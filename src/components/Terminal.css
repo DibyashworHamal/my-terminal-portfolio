@@ -1,0 +1,54 @@
+/* Style the entire page to have a dark background */
+body {
+  background-color: #212529;
+  margin: 0;
+  padding: 0;
+}
+
+/* The main container for our terminal */
+.terminal {
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+  font-family: 'Fira Code', monospace; /* Use our cool new font */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  min-height: 95vh; /* Make it take up most of the screen height */
+  margin: 2.5vh auto; /* Center it vertically and horizontally */
+  max-width: 900px; /* Give it a max width */
+  display: flex;
+  flex-direction: column;
+}
+
+/* The header bar of the terminal window */
+.terminal-header {
+  background-color: #333;
+  padding: 8px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  display: flex;
+  align-items: center;
+}
+
+/* The container for the little red/yellow/green buttons */
+.buttons {
+  display: flex;
+  gap: 8px; /* space between buttons */
+}
+
+.button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.2);
+}
+
+.button.red { background-color: #ff5f56; }
+.button.yellow { background-color: #ffbd2e; }
+.button.green { background-color: #27c93f; }
+
+/* The main content area of the terminal */
+.terminal-body {
+  padding: 15px;
+  flex-grow: 1; /* This makes the body take up all available space */
+  overflow-y: auto; /* Add a scrollbar if content overflows */
+}
