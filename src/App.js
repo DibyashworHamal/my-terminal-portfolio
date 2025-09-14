@@ -7,7 +7,7 @@ import Dashboard from './components/Dashboard/Dashboard';
 
 function App() {
   // For testing, we'll keep it on dashboard for now.
-  const [viewMode, setViewMode] = useState('terminal'); // 'terminal' or 'dashboard'
+  const [viewMode, setViewMode] = useState('dashboard'); // 'terminal' or 'dashboard'
   return (
     <Container fluid className="app-container">
       
