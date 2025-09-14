@@ -38,3 +38,26 @@
 .project-card .badge {
   font-size: 0.75rem;
 }
+
+/* --- Filter Button Styles --- */
+
+/* Target all buttons within the filter area */
+.filter-buttons .btn {
+  border-radius: 20px; /* Give the buttons a more modern, pill-like shape */
+  padding: 6px 16px;
+  font-weight: 500;
+  border-width: 2px; /* Make the border a bit thicker */
+  transition: all 0.2s ease-in-out; /* Smooth transition for hover effects */
+}
+
+/* Style for the inactive, outline buttons */
+.filter-buttons .btn-outline-secondary {
+  color: #adb5bd; /* A light grey color for the text */
+  border-color: #495057; /* A darker grey for the border */
+}
+
+/* Hover effect for inactive buttons */
+.filter-buttons .btn-outline-secondary:hover {
+  background-color: #495057; /* Dark grey background on hover */
+  color: #ffffff; /* White text on hover */
+}
