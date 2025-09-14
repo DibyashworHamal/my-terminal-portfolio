@@ -1,31 +1,24 @@
-import React, { useState } from 'react'; // Import useState
+// src/App.js
+import React, { useState } from 'react';
 import { Container } from 'react-bootstrap';
 
-// Import our two main components
 import Terminal from './components/Terminal';
 import Dashboard from './components/Dashboard/Dashboard';
 
 function App() {
-  // 1. Create a state variable to manage the current view
-  // Default view is 'terminal'
+  // For testing, we'll keep it on dashboard for now.
   const [viewMode, setViewMode] = useState('terminal');
 
-  // 2. The Conditional Rendering Logic
-  const renderView = () => {
-    if (viewMode === 'terminal') {
-      return <Terminal />;
-    } else if (viewMode === 'dashboard') {
-      return <Dashboard />;
-    }
-  };
-
   return (
-    // The 'fluid' prop makes the container full-width.
-    // We add a class for potential global styling.
     <Container fluid className="app-container">
       
-      {/* 3. Call the function to render the correct view */}
-      {renderView()}
+      {/* 
+        This is the new, improved conditional rendering.
+        It's a ternary operator. It reads like this:
+        "IF viewMode is 'terminal', THEN render <Terminal />, OTHERWISE render <Dashboard />"
+        This is much safer because it ALWAYS returns one of the two components.
+      */}
+      {viewMode === 'terminal' ? <Terminal /> : <Dashboard />}
 
     </Container>
   );

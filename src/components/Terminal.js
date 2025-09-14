@@ -23,6 +23,7 @@ const Terminal = () => {
             <p>  whoami    - Displays information about me</p>
             <p>  skills    - Lists my technical skills</p>
             <p>  projects  - Shows my recent projects</p>
+            <p>  experiences - Lists of my experiences</p>
             <p>  education - Displays my educational background</p>
             <p>  resume    - Opens my resume in a new tab</p>
             <p>  clear     - Clears the terminal screen</p>
@@ -64,6 +65,16 @@ const Terminal = () => {
           </>
         );
         break;
+
+      case 'experiences':
+        newOutput = (
+          <>
+            <p>My Experiences:</p>
+            <p>  1. A Three Day Workshop on Git and GitHub</p>
+            <p>  2. A Three Day Workshop on GIS System</p>
+          </>
+        );
+        break; 
 
       case 'education':
         newOutput = (
