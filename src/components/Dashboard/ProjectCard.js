@@ -1,8 +1,8 @@
 import React from 'react';
-import { Card, Badge } from 'react-bootstrap';
+import { Card, Badge, Button } from 'react-bootstrap';
 
 // This component receives a single `project` object as a prop
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ project, onViewDetails }) => {
   return (
     <Card className="project-card h-100">
       {/* We link the entire card image to the project URL for easy access */}
@@ -23,11 +23,16 @@ const ProjectCard = ({ project }) => {
         </Card.Text>
         {/* Display the project tags as badges */}
         <div className="mt-auto">
+           <div className="mb-3">
           {project.tags.map((tag, index) => (
             <Badge pill bg="secondary" className="me-2 mb-2" key={index}>
               {tag}
             </Badge>
           ))}
+        </div>
+         <Button variant="outline-secondary" onClick={() => onViewDetails(project)}>
+            View Details
+          </Button>
         </div>
       </Card.Body>
     </Card>
