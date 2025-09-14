@@ -1,4 +1,3 @@
-// src/App.js
 import React, { useState } from 'react';
 import { Container } from 'react-bootstrap';
 
@@ -6,19 +5,27 @@ import Terminal from './components/Terminal';
 import Dashboard from './components/Dashboard/Dashboard';
 
 function App() {
-  // For testing, we'll keep it on dashboard for now.
-  const [viewMode, setViewMode] = useState('dashboard'); // 'terminal' or 'dashboard'
+  // The default view should be the terminal
+  const [viewMode, setViewMode] = useState('terminal');
+
+  // 1. CREATE THE HANDLER FUNCTION
+  // This function will be passed down to both children components.
+  // It can accept 'terminal' or 'dashboard' as an argument.
+  const handleViewChange = (mode) => {
+    setViewMode(mode);
+  };
+
   return (
     <Container fluid className="app-container">
-      
-      {/* 
-        This is the new, improved conditional rendering.
-        It's a ternary operator. It reads like this:
-        "IF viewMode is 'terminal', THEN render <Terminal />, OTHERWISE render <Dashboard />"
-        This is much safer because it ALWAYS returns one of the two components.
+      {/*
+        2. PASS THE HANDLER DOWN AS A PROP
+        We use a different prop name for each component for clarity.
       */}
-      {viewMode === 'terminal' ? <Terminal /> : <Dashboard />}
-
+      {viewMode === 'terminal' ? (
+        <Terminal onSwitchView={handleViewChange} />
+      ) : (
+        <Dashboard onSwitchView={handleViewChange} />
+      )}
     </Container>
   );
 }

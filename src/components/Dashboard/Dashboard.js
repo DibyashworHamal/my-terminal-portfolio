@@ -1,6 +1,5 @@
-// src/components/Dashboard/Dashboard.js
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 
 import projects from '../../projectsData';
 import ProjectCard from './ProjectCard';
@@ -9,7 +8,7 @@ import ProjectModal from './ProjectModal';
 
 const allTags = ['All', ...new Set(projects.flatMap(project => project.tags))];
 
-const Dashboard = () => {
+const Dashboard = ({onSwitchView}) => {
   const [activeFilter, setActiveFilter] = useState('All');
   const [filteredProjects, setFilteredProjects] = useState(projects);
 
@@ -51,6 +50,15 @@ const Dashboard = () => {
             <h1>My Projects</h1>
             <p className="lead text-muted">A collection of my work. Click a tag to filter!</p>
           </Col>
+          <div className="view-switch-button">
+            <Button
+              variant="outline-secondary"
+              onClick={() => onSwitchView('terminal')}
+              title="Switch to Terminal View"
+            >
+              &gt;_
+            </Button>
+          </div>
         </Row>
 
         <FilterButtons

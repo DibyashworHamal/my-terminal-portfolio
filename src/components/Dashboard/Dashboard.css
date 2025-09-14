@@ -86,3 +86,16 @@
   color: #888;
   font-style: italic;
 }
+
+/* --- View Switch Button Styles --- */
+.view-switch-button {
+  position: absolute;
+  top: 0;
+  right: 15px; /* Adjust as needed */
+}
+
+.view-switch-button .btn {
+  font-family: 'Fira Code', monospace; /* Use our terminal font */
+  font-weight: bold;
+  border-radius: 8px;
+}

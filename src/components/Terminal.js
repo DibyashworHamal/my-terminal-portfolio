@@ -3,7 +3,7 @@ import History from './History';
 import Input from './Input';
 import './Terminal.css';
 
-const Terminal = () => {
+const Terminal = ({onSwitchView}) => {
   const [history, setHistory] = useState([
     { output: 'Welcome to my Interactive Portfolio!' },
     { output: "Type 'help' to see a list of available commands." },
@@ -93,6 +93,11 @@ const Terminal = () => {
         window.open('/resume.pdf', '_blank');
         newOutput = 'Opening resume...';
         break;
+
+      case 'gui':
+      case 'projects --visual': // Add an alias for discoverability
+        onSwitchView('dashboard'); // Call the function from App.js
+        return;
 
       case 'clear':
         setHistory([]);
